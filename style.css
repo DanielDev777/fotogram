@@ -24,20 +24,28 @@ h1 {
     color: #fff;
 }
 h2 {
-    font-size: 40px;
+    font-size: 30px;
 }
 a, p, span {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 400;
 }
+.pt20 {
+    padding-top: 20px;
+}
 .pb50 {
     padding-bottom: 50px;
+}
+.pb20 {
+    padding-bottom: 20px;
+}
+.center {
+    text-align: center;
 }
 /**** General ****/
 /**** Header ****/
 header {
-    padding: 20px 0;
     background-color: #3C0F4E;
 }
 header img {
@@ -95,6 +103,47 @@ header img {
     grid-row: 2 / 4;
 }
 /**** Gallery ****/
+/**** Dialog ****/
+dialog {
+    height: 600px;
+    width: 600px;
+    background-color: #1A1523;
+    border: 0;
+    padding: 0;
+    color: #fff;
+    border-radius: 7px;
+    position: relative;
+}
+dialog::backdrop {
+    background-color: #000;
+    opacity: .7;
+}
+dialog header {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    top: 10px;
+    right: 10px;
+}
+dialog button {
+    padding: 6px 12px;
+    border-radius: 7px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    box-shadow: 0px 0px 5px #fff;
+    cursor: pointer;
+}
+.dialog-body {
+    padding: 0;
+}
+dialog img {
+    width: 100%;
+    object-fit: contain;
+}
+/**** Dialog ****/
 /**** Footer ****/
 footer {
     background-color: #2E1E3F;

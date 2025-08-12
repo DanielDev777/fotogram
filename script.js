@@ -61,6 +61,7 @@ const galleryItems = [
   },
 ];
 
+
 function render() {
   let contentRef = document.getElementById("gallery");
   galleryItems.forEach((item) => {
@@ -68,4 +69,36 @@ function render() {
   });
 }
 
-const images = document.getElementsByClassName('gallery-img');
+let images = document.getElementsByClassName('gallery-img');
+const dialog = document.getElementById('imageDialog');
+let dialogImg = document.getElementById('dialog-img');
+let dialogTitle = document.getElementById('dialog-title');
+let dialogDescription = document.getElementById('dialog-description');
+
+
+function openDialog() {
+  dialog.showModal();
+}
+
+function closeDialog() {
+  dialog.close();
+}
+
+window.addEventListener("load", (event) => {
+  Array.from(images).forEach((image) => {
+    image.addEventListener('click', function(e) {
+      dialog.showModal();
+      searchGallery(e);
+    });
+  });
+});
+
+function searchGallery(e) {
+  galleryItems.forEach((item) => {
+    if (e.target.getAttribute('src') == item.path) {
+      dialogImg.setAttribute('src', item.path);
+      dialogTitle.innerText = item.title;
+      dialogDescription.innerText = item.description;
+    }
+  });
+}
