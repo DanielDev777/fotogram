@@ -111,8 +111,8 @@ header img {
 /**** Gallery ****/
 /**** Dialog ****/
 dialog {
-    height: 600px;
-    width: 600px;
+    height: 800px;
+    width: 800px;
     background-color: #1A1523;
     border: 0;
     padding: 0;
@@ -158,12 +158,11 @@ dialog button:hover {
     justify-content: center;
     align-items: center;
     height: 100%;
-    height: 200px;
 }
 dialog img {
     width: 100%;
     object-fit: contain;
-    max-height: 400px;
+    max-height: 600px;
 }
 .dialog-controls {
     position: absolute;
@@ -234,6 +233,15 @@ footer {
         grid-row: 4 / 6;
     }
     /**** Gallery ****/
+    /**** Dialog ****/
+    dialog {
+        height: 600px;
+        width: 600px;
+    }
+    dialog img {
+        max-height: 400px;
+    }
+    /**** Dialog ****/
 }
 @media (max-width: 600px) {
     /**** General ****/
