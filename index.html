@@ -30,13 +30,13 @@
                         <button id="close-btn" aria-label="close dialog">Close</button>
                     </header>
                     <section class="dialog-body">
-                        <img src="" id="dialog-img">
+                        <img src="" id="dialog-img" alt="placeholder for dialog image">
                         <div class="dialog-text pt20 pr20 pb20 pl20">
-                            <h2 tabindex="0" class="center" id="dialog-title"></h2>
+                            <h2 tabindex="0" class="center" id="dialog-title">Placeholder Dialog Title</h2>
                             <p tabindex="0" class="center" id="dialog-description"></p>
                             <div class="dialog-controls">
-                                <button onclick="clickControlButton(-1, event)" id="prev"></button>
-                                <button onclick="clickControlButton(1, event)" id="next"></button>
+                                <button onclick="clickControlButton(-1, event)" id="prev"><span class="d-none">previous Image</span></button>
+                                <button onclick="clickControlButton(1, event)" id="next"><span class="d-none">next Image</span></button>
                             </div>
                         </div>
                     </section>

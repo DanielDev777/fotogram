@@ -64,7 +64,7 @@ let galleryItems = [
 function render() {
   let contentRef = document.getElementById("gallery");
   galleryItems.forEach((item) => {
-    contentRef.innerHTML += `<img aria-haspopup="dialog" aria-controls="imageDialog" tabindex="0" src="${item.path}" class="gallery-img" alt="${item.description}">`;
+    contentRef.innerHTML += `<img aria-haspopup="dialog" aria-controls="imageDialog" tabindex="0" src="${item.path}" class="gallery-img" alt="${item.title}">`;
   });
 }
 

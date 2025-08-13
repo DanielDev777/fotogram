@@ -49,6 +49,9 @@ a, p, span {
 .center {
     text-align: center;
 }
+.d-none {
+    display: none;
+}
 /**** General ****/
 /**** Header ****/
 header {
