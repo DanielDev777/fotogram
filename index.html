@@ -15,27 +15,35 @@
 <body onload="render()">
     <header class="pt20 pb20">
         <div class="container">
-            <img src="./assets/logo/Fotogram_Logo.svg">
+            <img src="./assets/logo/Fotogram_Logo.svg" alt="Fotogram Logo">
         </div>
     </header>
-    <section>
-        <div class="container">
-            <h1 class="pb50">Your personal photo album</h1>
-            <div id="gallery">
-
+    <main>
+        <section>
+            <div class="container">
+                <h1 tabindex="0" class="pb50">Your personal photo album</h1>
+                <div id="gallery">
+    
+                </div>
+                <dialog id="imageDialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+                    <header>
+                        <button id="close-btn" aria-label="close dialog">Close</button>
+                    </header>
+                    <section class="dialog-body">
+                        <img src="" id="dialog-img">
+                        <div class="dialog-text pt20 pr20 pb20 pl20">
+                            <h2 tabindex="0" class="center" id="dialog-title"></h2>
+                            <p tabindex="0" class="center" id="dialog-description"></p>
+                            <div class="dialog-controls">
+                                <button onclick="clickControlButton(-1, event)" id="prev"></button>
+                                <button onclick="clickControlButton(1, event)" id="next"></button>
+                            </div>
+                        </div>
+                    </section>
+                </dialog>
             </div>
-            <dialog id="imageDialog">
-                <header>
-                    <button onclick="closeDialog()">Schließen</button>
-                </header>
-                <section class="dialog-body">
-                    <img src="" id="dialog-img" class="pb20">
-                    <h2 class="center" id="dialog-title"></h2>
-                    <p class="center" id="dialog-description"></p>
-                </section>
-            </dialog>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
         <div class="container">
             <span>&copy; 2025 Daniel Productions</span>

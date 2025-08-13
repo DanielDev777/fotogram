@@ -1,4 +1,4 @@
-const galleryItems = [
+let galleryItems = [
   {
     path: "./assets/img/mountains-with-snow.jpg",
     title: "Winter Majesty",
@@ -61,34 +61,44 @@ const galleryItems = [
   },
 ];
 
-
 function render() {
   let contentRef = document.getElementById("gallery");
   galleryItems.forEach((item) => {
-    contentRef.innerHTML += `<img src="${item.path}" class="gallery-img">`;
+    contentRef.innerHTML += `<img aria-haspopup="dialog" aria-controls="imageDialog" tabindex="0" src="${item.path}" class="gallery-img" alt="${item.description}">`;
   });
 }
 
 let images = document.getElementsByClassName('gallery-img');
-const dialog = document.getElementById('imageDialog');
+let dialog = document.getElementById('imageDialog');
 let dialogImg = document.getElementById('dialog-img');
 let dialogTitle = document.getElementById('dialog-title');
 let dialogDescription = document.getElementById('dialog-description');
+let closeBtn = document.getElementById('close-btn');
+let i = 0;
+let prevBtn = document.getElementById('prev');
+let nextBtn = document.getElementById('next');
 
 
-function openDialog() {
+function openDialog(e) {
   dialog.showModal();
+  searchGallery(e);
 }
 
-function closeDialog() {
-  dialog.close();
+function closeDialog(e) {
+  if (e.target === dialog || e.target === closeBtn || e.key === 'esc') {
+    dialog.close();
+  }
 }
+
+dialog.addEventListener("click", closeDialog);
 
 window.addEventListener("load", (event) => {
   Array.from(images).forEach((image) => {
-    image.addEventListener('click', function(e) {
-      dialog.showModal();
-      searchGallery(e);
+    image.addEventListener("click", openDialog);
+    image.addEventListener("keyup", function(e) {
+        if (e.key === 'Enter') {
+          openDialog(e);
+        }
     });
   });
 });
@@ -101,4 +111,27 @@ function searchGallery(e) {
       dialogDescription.innerText = item.description;
     }
   });
+}
+
+function changeDialogInfo(value, e) {
+  i = 0;
+  let currentImageSrc = dialogImg.getAttribute('src');
+  galleryItems.forEach((item) => {
+    if (currentImageSrc == item.path) {
+      let currentIndex = i;
+      if (currentIndex == galleryItems.length - 1 && e.target == nextBtn) {
+        currentIndex = -1;
+      } else if (currentIndex == 0 && e.target === prevBtn) {
+        currentIndex = 10;
+      }
+      dialogImg.setAttribute('src', galleryItems[currentIndex + value].path);
+      dialogTitle.innerText = galleryItems[currentIndex + value].title;
+      dialogDescription.innerText = galleryItems[currentIndex + value].description;
+    }
+    i++;
+  });
+}
+
+function clickControlButton(value, event) {
+  changeDialogInfo(value, event);
 }
