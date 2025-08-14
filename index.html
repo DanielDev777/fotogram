@@ -16,34 +16,41 @@
     <header class="pt20 pb20">
         <div class="container">
             <img src="./assets/logo/Fotogram_Logo.svg" alt="Fotogram Logo">
+            <nav>
+                <ul>
+                    <li><button onclick="renderFavorites()" id="render-favorites-btn">Show Favorites</button></li>
+                    <li><button onclick="render()" id="render-btn">Show All</button></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    <main>
-        <section>
-            <div class="container">
-                <h1 tabindex="0" class="pb50">Your personal photo album</h1>
-                <div id="gallery">
-    
-                </div>
-                <dialog id="imageDialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
-                    <header>
-                        <button id="close-btn" aria-label="close dialog">Close</button>
-                    </header>
-                    <section class="dialog-body">
-                        <img src="" id="dialog-img" alt="placeholder for dialog image">
-                        <div class="dialog-text pt20 pr20 pb20 pl20">
-                            <h2 tabindex="0" class="center" id="dialog-title">Placeholder Dialog Title</h2>
-                            <p tabindex="0" class="center" id="dialog-description"></p>
-                            <div class="dialog-controls">
-                                <button onclick="clickControlButton(-1, event)" id="prev"><span class="d-none">previous Image</span></button>
-                                <button onclick="clickControlButton(1, event)" id="next"><span class="d-none">next Image</span></button>
-                            </div>
-                        </div>
-                    </section>
-                </dialog>
+    <section>
+        <div class="container">
+            <h1 id="headline" tabindex="0" class="pb50">Your personal photo album</h1>
+            <div id="gallery">
+
             </div>
-        </section>
-    </main>
+            <dialog id="imageDialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+                <header>
+                    <button id="close-btn" aria-label="close dialog">Close</button>
+                </header>
+                <section class="dialog-body">
+                    <img src="" id="dialog-img" alt="placeholder for dialog image">
+                    <div class="dialog-text pt20 pr20 pb20 pl20">
+                        <h2 tabindex="0" class="center" id="dialog-title">Placeholder Dialog Title</h2>
+                        <p tabindex="0" class="center" id="dialog-description"></p>
+                        <div class="dialog-controls">
+                            <button onclick="clickControlButton(-1, event)" id="prev"><span class="d-none">previous Image</span></button>
+                            <button onclick="clickControlButton(1, event)" id="next"><span class="d-none">next Image</span></button>
+                        </div>
+                    </div>
+                </section>
+                <footer>
+                    <button id="diashow-btn">Start diashow</button>
+                </footer>
+            </dialog>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <span>&copy; 2025 Daniel Productions</span>

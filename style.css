@@ -1,10 +1,19 @@
 /**** General ****/
-body {
+html, body {
+    height: 100%;
     margin: 0;
+}
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+main {
+    height: 100%;
+    background-color: #1A1523;
 }
 section {
     background-color: #1A1523;
     padding: 80px 0;
+    height: 100%;
 }
 .container {
     max-width: 1440px;
@@ -61,6 +70,35 @@ header img {
     max-height: 50px;
     object-fit: contain;
 }
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+}
+nav ul {
+    list-style: none;
+}
+nav ul li {
+    padding-left: 16px;
+}
+nav ul li button {
+    padding: 6px 12px;
+    border-radius: 7px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    box-shadow: 0px 0px 5px #fff;
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+nav ul li button:hover {
+    box-shadow: 0px 0px 15px #fff;
+}
+
 /**** Header ****/
 /**** Gallery ****/
 #gallery {
@@ -70,6 +108,20 @@ header img {
     height: 750px;
     width: 100%;
     gap: 10px;
+}
+#gallery.favorites {
+    height: unset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: unset;
+}
+#gallery.favorites .gallery-img {
+    flex: 0 0 30%;
+    max-width: 30%;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    height: 300px;
 }
 #gallery img {
     width: 100%;
@@ -82,6 +134,10 @@ header img {
 }
 #gallery img:hover {
     box-shadow: 0px 0px 20px #fff;
+    cursor: pointer;
+}
+#gallery .gallery-img {
+    position: relative;
 }
 #gallery .gallery-img:first-of-type {
     grid-column: 4 / 6;
@@ -111,6 +167,32 @@ header img {
     grid-column: 3 / 4;
     grid-row: 2 / 4;
 }
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1;
+    transition: all .5s ease-in;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.favorite-btn:hover {
+    box-shadow: 0px 0px 20px gold;
+}
+.favorite-btn.grow {
+    transform: scale(1.2);
+}
+.star {
+    width: 35px;
+    height: 35px;
+}
 /**** Gallery ****/
 /**** Dialog ****/
 dialog {
@@ -121,7 +203,12 @@ dialog {
     padding: 0;
     color: #fff;
     border-radius: 7px;
-    position: relative;
+    position: fixed;
+}
+dialog[open] {
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
 }
 dialog::backdrop {
     background-color: #000;
@@ -154,6 +241,14 @@ dialog button:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
+    transition: all .5s ease-in;
+    position: relative;
+}
+.dialog-body.fading-out {
+    opacity: 0;
+}
+.dialog-body.fading-in {
+    opacity: 1;
 }
 .dialog-text {
     display: flex;
@@ -165,7 +260,7 @@ dialog button:hover {
 dialog img {
     width: 100%;
     object-fit: contain;
-    max-height: 600px;
+    max-height: 500px;
 }
 .dialog-controls {
     position: absolute;
@@ -238,7 +333,7 @@ footer {
     /**** Gallery ****/
     /**** Dialog ****/
     dialog {
-        height: 600px;
+        height: 700px;
         width: 600px;
     }
     dialog img {
