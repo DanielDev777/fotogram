@@ -241,7 +241,7 @@ dialog button:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: all .5s ease-in;
+    transition: all .4s ease-in;
     position: relative;
 }
 .dialog-body.fading-out {

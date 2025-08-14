@@ -247,6 +247,9 @@ function clickControlButton(value, event) {
 }
 
 function loopDiashow(e) {
+  if (dialogBody.contains(document.querySelector('.dialog-favorite-btn'))) {
+    dialogBody.removeChild(document.querySelector('.dialog-favorite-btn'));
+  }
   setTimeout(() => {
     if (dialog.hasAttribute("open") === true) {
       if (favoritesActive) {
