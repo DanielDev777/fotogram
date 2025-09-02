@@ -209,10 +209,6 @@ function changeDialogInfo(value, e, loop, array) {
     if (currentImageSrc == item.path) {
       let currentIndex = i;
 
-      if (loop === true) {
-        setTimeout(fadeOut, 2500);
-      }
-
       if (
         (currentIndex == array.length - 1 && targetBtn == nextBtn) ||
         (currentIndex == array.length - 1 && loop === true)
@@ -250,6 +246,9 @@ function loopDiashow(e) {
   if (dialogBody.contains(document.querySelector('.dialog-favorite-btn'))) {
     dialogBody.removeChild(document.querySelector('.dialog-favorite-btn'));
   }
+  setTimeout(() => {
+    fadeOut();
+  }, 2500);
   setTimeout(() => {
     if (dialog.hasAttribute("open") === true) {
       if (favoritesActive) {
